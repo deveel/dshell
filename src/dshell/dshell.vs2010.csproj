@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E849796-A39E-4AF8-A516-D2837C3CCE6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dshell</RootNamespace>
+    <AssemblyName>dshell</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="deveel-cli">
+      <HintPath>..\packages\deveel-cli.1.0.1\lib\net20\deveel-cli.dll</HintPath>
+    </Reference>
+    <Reference Include="deveelrl">
+      <HintPath>..\packages\deveelrl.1.0.0\lib\net20\deveelrl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Deveel.Collections\SortedMatchEnumerator.cs" />
+    <Compile Include="Deveel.Collections\SubsetDictionary.cs" />
+    <Compile Include="Deveel.Collections\SubsetList.cs" />
+    <Compile Include="Deveel.Console.Commands\Command.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandAliasAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandAliases.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandArguments.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandCompletionAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandDescriptionAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandDispatcher.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandEventArgs.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandGroupAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandResultCode.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandSeparator.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandSynopsisAttributecs.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandWrapper.cs" />
+    <Compile Include="Deveel.Console.Commands\DescriptionSource.cs" />
+    <Compile Include="Deveel.Console.Commands\EchoCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ExitCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\HelpCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ICommandAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\ICommandSeparator.cs" />
+    <Compile Include="Deveel.Console.Commands\IExecutable.cs" />
+    <Compile Include="Deveel.Console.Commands\PlugInCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\PlugOutCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\PropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ResetContextPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ResetPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\SetCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\SetContextPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\SetPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ShowCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ShowContextPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\ShowPropertyCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\SpoolCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\UnsetCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\VariablesCommand.cs" />
+    <Compile Include="Deveel.Console\Answer.cs" />
+    <Compile Include="Deveel.Console\ApplicationInterruptionHandler.cs" />
+    <Compile Include="Deveel.Console\ApplicationPlugins.cs" />
+    <Compile Include="Deveel.Console\ApplicationSettings.cs" />
+    <Compile Include="Deveel.Console\BooleanPropertyHolder.cs" />
+    <Compile Include="Deveel.Console\CancelWriter.cs" />
+    <Compile Include="Deveel.Console\ColumnAlignment.cs" />
+    <Compile Include="Deveel.Console\ColumnDesign.cs" />
+    <Compile Include="Deveel.Console\ColumnValue.cs" />
+    <Compile Include="Deveel.Console\ConfigurationFile.cs" />
+    <Compile Include="Deveel.Console\ConsoleInputDevice.cs" />
+    <Compile Include="Deveel.Console\ConsoleOutputDevice.cs" />
+    <Compile Include="Deveel.Console\EnumeratedPropertyHolder.cs" />
+    <Compile Include="Deveel.Console\FileInputDevice.cs" />
+    <Compile Include="Deveel.Console\IApplicationContext.cs" />
+    <Compile Include="Deveel.Console\IExecutionContext.cs" />
+    <Compile Include="Deveel.Console\IInformationProvider.cs" />
+    <Compile Include="Deveel.Console\IInterruptable.cs" />
+    <Compile Include="Deveel.Console\InputDevice.cs" />
+    <Compile Include="Deveel.Console\IOptionsHandler.cs" />
+    <Compile Include="Deveel.Console\IPluginHandler.cs" />
+    <Compile Include="Deveel.Console\IPropertyHandler.cs" />
+    <Compile Include="Deveel.Console\ISettingsHandler.cs" />
+    <Compile Include="Deveel.Console\LineExecutionResultCode.cs" />
+    <Compile Include="Deveel.Console\NameCompleter.cs" />
+    <Compile Include="Deveel.Console\OutputDevice.cs" />
+    <Compile Include="Deveel.Console\ProgressWriter.cs" />
+    <Compile Include="Deveel.Console\PropertyHolder.cs" />
+    <Compile Include="Deveel.Console\PropertyRegistry.cs" />
+    <Compile Include="Deveel.Console\Question.cs" />
+    <Compile Include="Deveel.Console\ShellApplication.cs" />
+    <Compile Include="Deveel.Console\SignalInterruptHandler.cs" />
+    <Compile Include="Deveel.Console\Signals.cs" />
+    <Compile Include="Deveel.Console\SystemSignalHandler.cs" />
+    <Compile Include="Deveel.Console\TableRenderer.cs" />
+    <Compile Include="Deveel.Console\TextWriterOutputDevice.cs" />
+    <Compile Include="Deveel.Console\TimeRenderer.cs" />
+    <Compile Include="Deveel.Util\Properties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
