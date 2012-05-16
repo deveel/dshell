@@ -8,7 +8,7 @@
     <ProjectGuid>{5E849796-A39E-4AF8-A516-D2837C3CCE6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>dshell</RootNamespace>
+    <RootNamespace>Deveel.Console</RootNamespace>
     <AssemblyName>dshell</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,7 +45,6 @@
     <Compile Include="Deveel.Collections\SubsetList.cs" />
     <Compile Include="Deveel.Console.Commands\Command.cs" />
     <Compile Include="Deveel.Console.Commands\CommandAliasAttribute.cs" />
-    <Compile Include="Deveel.Console.Commands\CommandAliases.cs" />
     <Compile Include="Deveel.Console.Commands\CommandArguments.cs" />
     <Compile Include="Deveel.Console.Commands\CommandAttribute.cs" />
     <Compile Include="Deveel.Console.Commands\CommandCompletionAttribute.cs" />
