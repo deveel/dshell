@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Deveel.Console {
 	public abstract class OutputDevice : TextWriter {
@@ -39,54 +41,85 @@ namespace Deveel.Console {
 			Write(value);
 			AttributeReset();
 		}
+
+		private static bool AreEqual(char[] a, char[] b) {
+			if (a.Length != b.Length)
+				return false;
+
+			for (int i = 0; i < a.Length; i++) {
+				if (!a[i].Equals(b[i]))
+					return false;
+			}
+
+			return true;
+		}
 		
 		public override void Write(char[] buffer, int index, int count) {
 			int lineMaxWidth = LineMaxWidth;
 			if (lineMaxWidth > 0) {
-				if (count + lineWidth > lineMaxWidth) {
-					int lines = (int) Math.Round((double)count/lineMaxWidth, MidpointRounding.ToEven);
+				char[] lineTerminator = NewLine.ToCharArray();
+				char[] test = new char[lineTerminator.Length];
 
-					char[] lineTerminator = NewLine.ToCharArray();
-					char[] toAdd = OnNewLine();
-					char[] newBuffer = new char[lines*(lineTerminator.Length + toAdd.Length + lineMaxWidth)];
+				List<char[]> lines = new List<char[]>();
+				List<char> flush = new List<char>();
+				for (int i = 0; i < count; i++) {
+					if (i + lineTerminator.Length <= count) {
+						Array.Copy(buffer, i, test, 0, lineTerminator.Length);
 
-					int srcOffset = 0;
-					int destOffset = 0;
-					for (int i = 0; i < lines; i++) {
-						int endLine = lineMaxWidth - lineTerminator.Length;
-						Array.Copy(buffer, srcOffset, newBuffer, destOffset, endLine);
-						Array.Copy(lineTerminator, 0, newBuffer, endLine, lineTerminator.Length);
-						Array.Copy(toAdd, 0, newBuffer, endLine + lineTerminator.Length, toAdd.Length);
-						srcOffset += endLine;
-						destOffset += lineMaxWidth;
-						lineWidth += lineMaxWidth;
-					}
+						bool hasEOL = AreEqual(lineTerminator, test);
 
-					buffer = newBuffer;
-					count = buffer.Length;
-					lineWidth = 0;
-				} else {
-					char[] lineTerminator = NewLine.ToCharArray();
-					char[] test = new char[lineTerminator.Length];
-					bool hasEOL = true;
-					if (count < lineTerminator.Length) {
-						hasEOL = false;
-					} else {
-						Array.Copy(buffer, count - lineTerminator.Length, test, 0, lineTerminator.Length);
-						for (int i = 0; i < lineTerminator.Length; i++) {
-							if (test[i] != lineTerminator[i]) {
-								hasEOL = false;
-								break;
-							}
+						if (hasEOL) {
+							flush.AddRange(lineTerminator);
+							lines.Add(flush.ToArray());
+							flush.Clear();
+							i += (lineTerminator.Length - 1);
+						} else {
+							flush.Add(buffer[i]);
 						}
-					}
-					
-					if (hasEOL) {
-						lineWidth = 0;
 					} else {
-						lineWidth += count;
+						flush.Add(buffer[i]);
 					}
 				}
+
+				if (flush.Count > 0)
+					lines.Add(flush.ToArray());
+
+				List<char> newBuffer = new List<char>();
+				for (int i = 0; i < lines.Count; i++) {
+					char[] line = lines[i];
+					char[] toAdd = OnNewLine();
+
+					while (line.Length + lineWidth + toAdd.Length > lineMaxWidth) {
+						int lineDiff = lineMaxWidth - lineWidth;
+						int toCopy = lineDiff - lineTerminator.Length;
+						char[] temp = new char[toCopy + toAdd.Length + lineTerminator.Length];
+						Array.Copy(toAdd, 0, temp, 0, toAdd.Length);
+						Array.Copy(line, 0, temp, toAdd.Length, toCopy);
+						Array.Copy(lineTerminator, 0, temp, toCopy + toAdd.Length, lineTerminator.Length);
+
+						newBuffer.AddRange(temp);
+
+						char[] newLine = new char[line.Length - toCopy];
+						Array.Copy(line, toCopy, newLine, 0, newLine.Length);
+
+						line = newLine;
+						
+						if (lineWidth > 0)
+							lineWidth = 0;
+					}
+
+					if (AreEqual(lineTerminator, line)) {
+						newBuffer.AddRange(toAdd);
+						newBuffer.AddRange(lineTerminator);
+						lineWidth = 0;
+					} else {
+						newBuffer.AddRange(line);
+						lineWidth += line.Length;
+					}
+				}
+
+				buffer = newBuffer.ToArray();
+				count = newBuffer.Count;
 			}
 
 			Output.Write(buffer, index, count);
