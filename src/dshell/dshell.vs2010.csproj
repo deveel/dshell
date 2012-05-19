@@ -43,8 +43,11 @@
     <Compile Include="Deveel.Collections\SortedMatchEnumerator.cs" />
     <Compile Include="Deveel.Collections\SubsetDictionary.cs" />
     <Compile Include="Deveel.Collections\SubsetList.cs" />
+    <Compile Include="Deveel.Console.Commands\AliasCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\AliasesCommand.cs" />
     <Compile Include="Deveel.Console.Commands\Command.cs" />
     <Compile Include="Deveel.Console.Commands\CommandAliasAttribute.cs" />
+    <Compile Include="Deveel.Console.Commands\CommandAliases.cs" />
     <Compile Include="Deveel.Console.Commands\CommandArguments.cs" />
     <Compile Include="Deveel.Console.Commands\CommandAttribute.cs" />
     <Compile Include="Deveel.Console.Commands\CommandCompletionAttribute.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Deveel.Console.Commands\ShowContextPropertyCommand.cs" />
     <Compile Include="Deveel.Console.Commands\ShowPropertyCommand.cs" />
     <Compile Include="Deveel.Console.Commands\SpoolCommand.cs" />
+    <Compile Include="Deveel.Console.Commands\UnaliasCommand.cs" />
     <Compile Include="Deveel.Console.Commands\UnsetCommand.cs" />
     <Compile Include="Deveel.Console.Commands\VariablesCommand.cs" />
     <Compile Include="Deveel.Console\Answer.cs" />

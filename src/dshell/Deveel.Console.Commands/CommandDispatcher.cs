@@ -13,7 +13,7 @@ namespace Deveel.Console.Commands {
 
 		public CommandDispatcher(IApplicationContext application) {
 			this.application = application;
-			// aliases = new CommandAliases(this);
+			aliases = new CommandAliases(this);
 			commandMap = new SortedDictionary<string, Command>();
 			commands = new List<CommandInfo>();
 			batchCount = 0;
@@ -25,7 +25,7 @@ namespace Deveel.Console.Commands {
 
 		#region Fields
 		private readonly IApplicationContext application;
-		// private readonly CommandAliases aliases;
+		private readonly CommandAliases aliases;
 		private readonly List<CommandInfo> commands; // commands in seq. of addition.
 		private List<Command> regCommands;
 		private readonly SortedDictionary<string, Command> commandMap;
@@ -80,11 +80,9 @@ namespace Deveel.Console.Commands {
 			set { commandSeparator = value; }
 		}
 
-		/*
 		public CommandAliases Aliases {
 			get { return aliases; }
 		}
-		*/
 
 		#endregion
 
