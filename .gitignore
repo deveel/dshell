@@ -5,3 +5,5 @@
 /src/packages
 /src/sampleapp/obj
 /src/sampleapp/bin
+/src/dshell-nunit.vs2010/obj
+/src/dshell-nunit.vs2010/bin

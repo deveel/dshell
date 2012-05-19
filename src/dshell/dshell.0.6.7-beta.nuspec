@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <version>0.6.7-beta</version>
+    <authors>Antonello Provenzano</authors>
+    <owners>Deveel</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>http://github.com/deveel/dshell</projectUrl>
+    <dependencies>
+      <dependency id="deveelrl" />
+      <dependency id="deveel-cli" version="1.0.1" />
+    </dependencies>
+    <id>dshell</id>
+    <title>Deveel Shell Application Library</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This library is used to easily develop .NET/Mono shell applications, providing command line parsing, execution context, and other functionalities to design interactive console applications.</description>
+    <copyright>Copyright 2010-2012 Deveel</copyright>
+    <tags>command-line console shell .NET Mono deveel application command</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\dshell.dll" target="lib\net20\dshell.dll" />
+  </files>
+</package>

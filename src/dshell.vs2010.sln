@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dshell.vs2010", "dshell\dsh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sampleapp", "sampleapp\sampleapp.csproj", "{EBC6095C-6575-4716-A937-4280B37ABCE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dshell-nunit.vs2010", "dshell-nunit.vs2010\dshell-nunit.vs2010.csproj", "{443F911C-939E-4098-AAB0-8E452FA28E80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{EBC6095C-6575-4716-A937-4280B37ABCE6}.Release|Mixed Platforms.Build.0 = Release|x86
 		{EBC6095C-6575-4716-A937-4280B37ABCE6}.Release|x86.ActiveCfg = Release|x86
 		{EBC6095C-6575-4716-A937-4280B37ABCE6}.Release|x86.Build.0 = Release|x86
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{443F911C-939E-4098-AAB0-8E452FA28E80}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
