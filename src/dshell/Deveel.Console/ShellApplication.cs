@@ -170,6 +170,13 @@ namespace Deveel.Console {
 				(input as ConsoleInputDevice).Prompt = prompt;
 		}
 
+		public void SetInputDevice(InputDevice device) {
+			if (device == null) 
+				throw new ArgumentNullException("device");
+
+			input = device;
+		}
+
 		public void SetOutDevice(OutputDevice device) {
 			if (device == null)
 				throw new ArgumentNullException("device");

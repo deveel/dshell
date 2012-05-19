@@ -44,6 +44,8 @@ namespace Deveel.Console {
 		bool IsRunning { get; }
 
 
+		void SetInputDevice(InputDevice device);
+
 		void SetOutDevice(OutputDevice device);
 
 		void SetErrorDevice(OutputDevice device);

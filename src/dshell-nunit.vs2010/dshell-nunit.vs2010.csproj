@@ -34,6 +34,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deveel.Console\StringInputDevice.cs" />
     <Compile Include="Deveel.Console\StringWriteEventArgs.cs" />
     <Compile Include="Deveel.Console\TestOutputDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
